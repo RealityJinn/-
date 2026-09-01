@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <circle cx="100" cy="100" r="72" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+  <g stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round">
+    <line x1="100" y1="16" x2="100" y2="30"/>
+    <line x1="100" y1="170" x2="100" y2="184"/>
+    <line x1="30" y1="100" x2="16" y2="100"/>
+    <line x1="170" y1="100" x2="184" y2="100"/>
+    <line x1="45" y1="45" x2="36" y2="55"/>
+    <line x1="155" y1="45" x2="144" y2="55"/>
+    <line x1="45" y1="155" x2="55" y2="144"/>
+    <line x1="155" y1="155" x2="144" y2="144"/>
+  </g>
+  <g fill="#1a1a1a">
+    <circle cx="100" cy="22" r="1.5"/>
+    <circle cx="172" cy="100" r="1.5"/>
+    <circle cx="100" cy="178" r="1.5"/>
+    <circle cx="28" cy="100" r="1.5"/>
+  </g>
+  <g font-family="'Playfair Display', serif" font-size="16" fill="#1a1a1a" text-anchor="middle">
+    <text x="100" y="30">12</text>
+    <text x="170" y="106">3</text>
+    <text x="100" y="182">6</text>
+    <text x="30" y="106">9</text>
+  </g>
+  <line x1="100" y1="100" x2="100" y2="55" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="100" y2="35" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="130" y2="70" stroke="#c9a36a" stroke-width="1" stroke-linecap="round"/>
+  <circle cx="100" cy="100" r="4" fill="#1a1a1a"/>
+</svg>

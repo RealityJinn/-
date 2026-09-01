@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЖАМЕР — Премиальные часы</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#eaf5e0;color:#1a1a1a;line-height:1.5}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+header{background:#eaf5e0;padding:20px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;letter-spacing:0.15em;text-decoration:none;color:#1a1a1a}
+nav ul{display:flex;gap:40px;list-style:none}
+nav a{text-decoration:none;color:#555;font-size:0.92rem;font-weight:400;letter-spacing:0.04em;transition:color 0.2s}
+nav a:hover{color:#000}
+.header-icons{display:flex;gap:20px;align-items:center}
+.header-icons a{color:#555;text-decoration:none;font-size:1.1rem}
+.hero{background:#eaf5e0;padding:60px 0 100px}
+.hero-main{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px;gap:40px}
+.hero-text{flex:1;max-width:540px}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:500;line-height:1.1;margin-bottom:24px;color:#1a1a1a}
+.hero-text p{font-size:1.05rem;color:#666;margin-bottom:36px;line-height:1.7}
+.hero-cta{display:flex;gap:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:0.85rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;cursor:pointer;text-decoration:none;transition:all 0.2s;border:none}
+.btn-primary{background:#1a1a1a;color:#fff}
+.btn-primary:hover{background:#333}
+.btn-ghost{background:transparent;color:#1a1a1a;border:1px solid #1a1a1a}
+.btn-ghost:hover{background:#1a1a1a;color:#fff}
+.hero-visual{flex:1;display:flex;justify-content:flex-end;gap:20px;align-items:center}
+.hero-thumb{width:160px;background:#f0f5e8;border-radius:8px;padding:16px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.06);transition:transform 0.3s;overflow:hidden;cursor:pointer}
+.hero-thumb:hover{transform:translateY(-4px)}
+.hero-thumb img{width:100%;height:120px;object-fit:contain;margin-bottom:12px;transition:transform 0.3s ease}
+.hero-thumb:hover img{transform:scale(3)}
+.hero-thumb .name{font-size:0.78rem;font-weight:500;margin-bottom:4px}
+.hero-thumb .price{font-size:0.72rem;color:#999}
+.hero-thumb-circle{width:200px;height:200px;border-radius:50%;background:#d8e8cc;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-left:0;cursor:pointer}
+.hero-thumb-circle img{width:150px;height:150px;object-fit:cover;border-radius:50%;transition:transform 0.3s ease}
+.hero-thumb-circle:hover img{transform:scale(3)}
+.popular{padding:100px 0;background:#fff}
+.popular-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:56px}
+.section-title{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:500;color:#1a1a1a}
+.arrows{display:flex;gap:12px}
+.arrows span{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #1a1a1a;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all 0.2s}
+.arrows span:hover{background:#1a1a1a;color:#fff}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.product-card{background:#f8faf5;border-radius:12px;padding:20px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;overflow:hidden}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.product-card img{width:100%;height:160px;object-fit:contain;margin-bottom:14px;transition:transform 0.3s ease;border-radius:8px;background:#f0f5e8}
+.product-card:hover img{transform:scale(3)}
+.product-card .label{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#c9a36a;margin-bottom:8px}
+.product-card .pname{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;margin-bottom:8px}
+.product-card .stars{font-size:0.75rem;color:#c9a36a;margin-bottom:8px;letter-spacing:2px}
+.product-card .pprice{font-size:1rem;font-weight:600;color:#1a1a1a}
+.our-products{padding:100px 0;background:#fff}
+.our-products .container{max-width:1200px;margin:0 auto;padding:0 24px}
+.product-grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;max-width:1100px;margin-left:auto;margin-right:auto}
+.product-grid-6 .product-card img{height:160px}
+.why-us{padding:100px 0;background:#f8faf5}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.why-card{background:#fff;padding:40px 24px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+.why-icon{font-size:2.4rem;margin-bottom:16px}
+.why-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;margin-bottom:8px}
+.why-text{font-size:0.88rem;color:#666;line-height:1.6}
+.experience{padding:100px 0;background:#eaf5e0}
+.exp-inner{display:flex;align-items:center;justify-content:space-between;gap:60px;max-width:1100px;margin:0 auto;padding:0 24px}
+.exp-text{flex:1}
+.exp-text p{font-size:0.95rem;color:#555;line-height:1.8;margin-top:16px}
+.exp-image{flex-shrink:0}
+.contacts{padding:100px 0;background:#fff}
+.contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center;max-width:900px;margin:0 auto}
+.contact-item{padding:40px 24px;background:#f8faf5;border-radius:12px}
+.contact-icon{font-size:2rem;margin-bottom:16px}
+.contact-title{font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#c9a36a;margin-bottom:8px}
+.contact-value{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500}
+footer{background:#1a1a1a;color:#888;padding:40px 0;text-align:center}
+footer p{font-size:0.8rem;letter-spacing:0.05em}
+@media(max-width:1100px){.product-grid{grid-template-columns:repeat(2,1fr)};.product-grid-6{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.hero-main{flex-direction:column};.product-grid,.product-grid-6{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<a href="#" class="logo">ЖАМЕР</a>
+<nav><ul>
+<li><a href="#popular">Коллекция</a></li>
+<li><a href="#about">О бренде</a></li>
+<li><a href="#contacts">Контакты</a></li>
+</ul></nav>
+<div class="header-icons">
+<a href="#">&#128269;</a>
+<a href="#">&#128722;</a>
+</div>
+</div>
+</header>
+
+<!-- БЛОК 1: HERO - 3 фото (ЗАПОЛНЕН) -->
+<section class="hero">
+<div class="hero-main">
+<div class="hero-text">
+<h1>Властвуй над временем</h1>
+<p>Откройте для себя эксклюзивную коллекцию премиальных часов. Созданы с точностью, воплощают элегантность.</p>
+<div class="hero-cta">
+<a href="#popular" class="btn btn-primary">В каталог</a>
+<a href="#about" class="btn btn-ghost">О бренде</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-thumb">
+<img src="images/w09.png" alt="Часы 1">
+<div class="name">OLRACK</div>
+<div class="price">$299</div>
+</div>
+<div class="hero-thumb">
+<img src="images/w02.png" alt="Часы 2">
+<div class="name">HERLRAX</div>
+<div class="price">$349</div>
+</div>
+<div class="hero-thumb-circle" style="margin-left:0">
+<img src="images/w03.png" alt="Часы 3">
+</div>
+</div>
+</div>
+</section>
+
+<!-- БЛОК 2: ПОПУЛЯРНЫЕ - 4 фото (ПУСТОЙ) -->
+<section class="popular" id="popular">
+<div class="container">
+<div class="popular-header">
+<h2 class="section-title">Популярные модели</h2>
+<div class="arrows"><span>&#8592;</span><span>&#8594;</span></div>
+</div>
+<div class="product-grid">
+<div class="product-card">
+<img src="images/w04.png" alt="Часы 1">
+<div class="label">Классика</div>
+<div class="pname">GELIIXE</div>
+<div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+<div class="pprice">$529</div>
+</div>
+<div class="product-card">
+<img src="images/w12.png" alt="TRIBELE">
+<div class="label">Минимализм</div>
+<div class="pname">TRIBELE</div>
+<div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+<div class="pprice">$399</div>
+</div>
+<div class="product-card">
+<img src="images/w06.png" alt="Часы 3">
+<div class="label">Наследие</div>
+<div class="pname">TIMIEL</div>
+<div class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</div>
+<div class="pprice">$459</div>
+</div>
+<div class="product-card">
+<img src="images/w07.png" alt="Часы 4">
+<div class="label">Модерн</div>
+<div class="pname">TIKELL</div>
+<div class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</div>
+<div class="pprice">$299</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- БЛОК 3: НАША ПРОДУКЦИЯ - 6 фото (ПУСТОЙ) -->
+<section class="our-products">
+<div class="container">
+<h2 class="section-title" style="text-align:center">Наша продукция</h2>
+<div class="product-grid-6">
+<div class="product-card">
+<img src="images/w01.png" alt="TTHIEEN">
+<div class="label">Коллекция</div>
+<div class="pname">TTHIEEN</div>
+<div class="pprice">$429</div>
+</div>
+<div class="product-card">
+<img src="images/w09.png" alt="TTOMEG">
+<div class="label">Коллекция</div>
+<div class="pname">TTOMEG</div>
+<div class="pprice">$389</div>
+</div>
+<div class="product-card">
+<img src="images/w11.png" alt="THEL">
+<div class="label">Коллекция</div>
+<div class="pname">THEL</div>
+<div class="pprice">$359</div>
+</div>
+</div>
+<div class="product-grid-6" style="margin-top:24px">
+<div class="product-card">
+<img src="images/w10.png" alt="WRACETIA">
+<div class="label">Коллекция</div>
+<div class="pname">WRACETIA</div>
+<div class="pprice">$449</div>
+</div>
+<div class="product-card">
+<img src="images/w05.png" alt="MEISIEER">
+<div class="label">Коллекция</div>
+<div class="pname">MEISIEER</div>
+<div class="pprice">$399</div>
+</div>
+<div class="product-card">
+<img src="images/w13.png" alt="NAJICR">
+<div class="label">Коллекция</div>
+<div class="pname">NAJICR</div>
+<div class="pprice">$479</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- БЛОК 4: ПОЧЕМУ МЫ -->
+<section class="why-us" id="about">
+<div class="container">
+<h2 class="section-title" style="text-align:center;margin-bottom:48px">Почему мы</h2>
+<div class="why-grid">
+<div class="why-card">
+<div class="why-icon">&#9202;</div>
+<div class="why-title">Точность</div>
+<div class="why-text">Швейцарский механизм с погрешностью ±1 сек/день</div>
+</div>
+<div class="why-card">
+<div class="why-icon">&#9733;</div>
+<div class="why-title">Качество</div>
+<div class="why-text">Сапфировое стекло, титановый корпус</div>
+</div>
+<div class="why-card">
+<div class="why-icon">&#128176;</div>
+<div class="why-title">Цена</div>
+<div class="why-text">Прямые поставки без посредников</div>
+</div>
+<div class="why-card">
+<div class="why-icon">&#128747;</div>
+<div class="why-title">Доставка</div>
+<div class="why-text">Бесплатно по всей России от 1 дня</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- БЛОК 5: О БРЕНДЕ -->
+<section class="experience">
+<div class="container">
+<div class="exp-inner">
+<div class="exp-text">
+<h2 class="section-title">ЖАМЕР — властвуй над временем</h2>
+<p>С 2010 года мы создаём премиальные часы для тех, кто ценит точность и стиль. Каждый экземпляр — результат сотен часов работы мастеров.</p>
+<p>Наша коллекция объединяет классическую элегантность и современные технологии. Швейцарские механизмы, сапфировое стекло, титановый корпус — всё для вашего совершенства.</p>
+<a href="#popular" class="btn btn-primary" style="margin-top:24px;display:inline-block">Смотреть коллекцию</a>
+</div>
+<div class="exp-image">
+<img src="images/w03.png" alt="ЖАМЕР" style="width:280px;height:280px;object-fit:cover;border-radius:12px">
+</div>
+</div>
+</div>
+</section>
+
+<!-- БЛОК 6: КОНТАКТЫ -->
+<section class="contacts" id="contacts">
+<div class="container">
+<h2 class="section-title" style="text-align:center;margin-bottom:40px">Контакты</h2>
+<div class="contacts-grid">
+<div class="contact-item">
+<div class="contact-icon">&#9742;</div>
+<div class="contact-title">Телефон</div>
+<div class="contact-value">8 (800) 555-01-99</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">&#9993;</div>
+<div class="contact-title">Email</div>
+<div class="contact-value">info@zamer.ru</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">&#9679;</div>
+<div class="contact-title">Адрес</div>
+<div class="contact-value">г. Капан ул. Хуступа 71</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>2026 ЖАМЕР. Все права защищены.</p>
+</div>
+</footer>
+</body>
+</html>
